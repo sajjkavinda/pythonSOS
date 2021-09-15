@@ -34,3 +34,19 @@ elif (a == "Windows"):
             if file.endswith(".exe"):
                 print(file)
                 f2.write(file)
+
+elif (a == "Darwin"):
+
+    x = datetime.datetime.now()
+    print(x.strftime("%d" "-" "%b" "-" "%y"))
+    print(x.strftime("%I" ":" "%M" " " "%p")) 
+
+    f3 = open(r'/Users/sajjkavinda/entries_mac.log', 'w') 
+
+    os.chdir(r'/Users/sajjkavinda/Downloads/')
+
+    for root, dirs, files in os.walk('/Users/sajjkavinda/Downloads/'):
+        for file in files:
+            if file.endswith(".pdf"):
+                print(file)
+                f3.write(file)
