@@ -17,7 +17,7 @@ if (a == "Linux"):
         for file in files:
             if file.endswith(".bin"):
                 print(file)
-                f1.write(file)
+                f1.write(file + "\n")
 
 elif (a == "Windows"):
 
@@ -33,7 +33,7 @@ elif (a == "Windows"):
         for file in files:
             if file.endswith(".exe"):
                 print(file)
-                f2.write(file)
+                f2.write(file + "\n")
 
 elif (a == "Darwin"):
 
@@ -49,4 +49,4 @@ elif (a == "Darwin"):
         for file in files:
             if file.endswith(".pdf"):
                 print(file)
-                f3.write(file)
+                f3.write(file + "\n")
