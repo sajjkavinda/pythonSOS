@@ -1,14 +1,18 @@
 import platform
 import os
 import datetime
+import time
+import pytz
 
 plat = "Platform: " + platform.platform()
 
 a = platform.system()
 if (a == "Linux"):
-    x = datetime.datetime.now()
-    timeL  = x.strftime("%c")
+    x = datetime.datetime.now(pytz.utc)
+    timeL  = x.strftime("%a %b %m %H:%M:%S %z %Y")
     print (timeL)
+
+    print((x.strftime("%a %b %m %H:%M:%S")),-time.timezone,x.strftime( "%Y"))
 
     f1 = open(r'root/Desktop/entries_Lin.log', 'w')
 
@@ -19,8 +23,8 @@ if (a == "Linux"):
     for root, dirs, files in os.walk("/usr/lib"):
         for file in files:
             if file.endswith(".bin"):
-                print(file)
-                f1.write(file + "\n")
+                print(os.getcwd() + (file))
+                f1.write(os.getcwd() + file + "\n")
 
 elif (a == "Windows"):
 
@@ -33,29 +37,37 @@ elif (a == "Windows"):
 
     os.chdir(r'C:\Windows\system32')
 
-    f2.write(plat + "\n" + timeW1 + "\n" + timeW2 + "\n" )
+    f2.write(plat + "\n" + timeW1 + "\n" + timeW2 + "\n" + "Directries of C:\Windows\system32 \n" )
 
     for root, dirs, files in os.walk("C:\Windows\system32"):
         for file in files:
             if file.endswith(".exe"):
-                print(file)
-                f2.write(file + "\n")
+                a = str(os.path.getsize(file))
+                b = str(time.ctime(os.path.getctime(file)))
+                print(b + a.rjust(10) + " " + file)
+                f2.write(b + a.rjust(10) + " " + file)
 
 elif (a == "Darwin"):
 
-    x = datetime.datetime.now()
-    mactime = x.strftime("%d" "-" "%b" "-" "%y")
-    mactime2 = x.strftime("%I" ":" "%M" " " "%p")
-    print(mactime + "\n" + mactime2)
+    x = datetime.datetime.now(pytz.utc)
+    mactime = x.strftime("%d" "-" "%b" "-" "%y" "\n" "%I" ":" "%M" " " "%p")
+    print(mactime + "\n")
+
+    y = datetime.datetime.now(pytz.utc)
+    timeL  = y.strftime("%a %b %m %H:%M:%S %z %Y")
+    #print (timeL)
+    #print(x.strftime('%a %b %m %H:%M:%S')), time.timezone , x.strftime( '%Y')
 
     f3 = open(r'/Users/sajjkavinda/entries_mac.log', 'w') 
 
     os.chdir(r'/Users/sajjkavinda/Downloads/')
 
-    f3.write(plat + "\n" + mactime + "\n" + mactime2 + "\n" )
+    f3.write(plat + "\n" + mactime + "\n") 
 
     for root, dirs, files in os.walk('/Users/sajjkavinda/Downloads/'):
         for file in files:
             if file.endswith(".pdf"):
-                print(file)
-                f3.write(file + "\n")
+                a = str(os.path.getsize(file))
+                b = str(time.ctime(os.path.getctime(file)))
+                print( b + a.rjust(10) + " " + file)
+                f3.write( b + a.rjust(10) + " " + file + "\n")
