@@ -31,13 +31,13 @@ elif (a == "Windows"):
     x = datetime.datetime.now()
     timeW1 = x.strftime("%d" "-" "%b" "-" "%y")
     timeW2 = x.strftime("%I" ":" "%M" " " "%p")
-    print(timeW1  + "\n" + timeW2)
+    print(timeW1  + "\n" + timeW2 +"\n" + "\n Directries of C:\Windows\system32 \n")
 
     f2 = open(r'C:\Desktop\entries_Win10.log', 'w') 
 
     os.chdir(r'C:\Windows\system32')
 
-    f2.write(plat + "\n" + timeW1 + "\n" + timeW2 + "\n" + "Directries of C:\Windows\system32 \n" )
+    f2.write(plat + "\n" + timeW1 + "\n" + timeW2 + "\n" + "Directries of C:\Windows\system32 \n" + "\ln")
 
     for root, dirs, files in os.walk("C:\Windows\system32"):
         for file in files:
@@ -51,7 +51,7 @@ elif (a == "Darwin"):
 
     x = datetime.datetime.now(pytz.utc)
     mactime = x.strftime("%d" "-" "%b" "-" "%y" "\n" "%I" ":" "%M" " " "%p")
-    print(mactime + "\n")
+    print(mactime + "\n" + "\n Directries of C:\Windows\system32 \n")
 
     y = datetime.datetime.now(pytz.utc)
     timeL  = y.strftime("%a %b %m %H:%M:%S %z %Y")
