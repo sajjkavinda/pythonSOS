@@ -1,7 +1,5 @@
-import platform
-import os
-import datetime
-import time
+import platform, os
+import datetime, time
 import pytz
 
 plat = "Platform: " + platform.platform()
@@ -36,6 +34,7 @@ elif (a == "Windows"):
     f2 = open(r'C:\Desktop\entries_Win10.log', 'w') 
 
     os.chdir(r'C:\Windows\system32')
+
 
     f2.write(plat + "\n" + timeW1 + "\n" + timeW2 + "\n" + "Directries of C:\Windows\system32 \n" + "\ln")
 
