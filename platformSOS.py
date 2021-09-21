@@ -1,11 +1,11 @@
 import platform, os
 import datetime, time
-import pytz
 
 plat = "Platform: " + platform.platform()
 
 a = platform.system()
 if (a == "Linux"):
+    import pytz
     x = datetime.datetime.now(pytz.utc)
     timeL  = x.strftime("%a %b %m %H:%M:%S %z %Y")
     print (timeL)
@@ -31,12 +31,12 @@ elif (a == "Windows"):
     timeW2 = x.strftime("%I" ":" "%M" " " "%p")
     print(timeW1  + "\n" + timeW2 +"\n" + "\n Directries of C:\Windows\system32 \n")
 
-    f2 = open(r'C:\Desktop\entries_Win10.log', 'w') 
+    f2 = open(r'C:\Desktop\entries_Win10.log', 'w')
 
     os.chdir(r'C:\Windows\system32')
 
 
-    f2.write(plat + "\n" + timeW1 + "\n" + timeW2 + "\n" + "Directries of C:\Windows\system32 \n" + "\ln")
+    f2.write(plat + "\n" + timeW1 + "\n" + timeW2 + "\n" + "Directries of C:\Windows\system32 \n" + "\n")
 
     for root, dirs, files in os.walk("C:\Windows\system32"):
         for file in files:
@@ -44,7 +44,7 @@ elif (a == "Windows"):
                 a = str(os.path.getsize(file))
                 b = str(time.ctime(os.path.getctime(file)))
                 print(b + a.rjust(10) + " " + file)
-                f2.write(b + a.rjust(10) + " " + file)
+                f2.write(b + a.rjust(10) + " " + file + "\n")
 
 elif (a == "Darwin"):
 
