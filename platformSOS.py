@@ -5,12 +5,11 @@ plat = "Platform: " + platform.platform()
 
 a = platform.system()
 if (a == "Linux"):
-    import pytz
-    x = datetime.datetime.now(pytz.utc)
-    timeL  = x.strftime("%a %b %m %H:%M:%S %z %Y")
-    print (timeL)
-
-    print((x.strftime("%a %b %m %H:%M:%S")),-time.timezone,x.strftime( "%Y"))
+    x = datetime.datetime.now()
+    timeL  = x.strftime("%a %b %m %H:%M:%S")
+    timezone = time.timezone
+    year = x.strftime("%Y \n")
+    print (timeL + " "+ timezone + " " + year + "\n")
 
     f1 = open(r'root/Desktop/entries_Lin.log', 'w')
 
@@ -36,7 +35,7 @@ elif (a == "Windows"):
     os.chdir(r'C:\Windows\system32')
 
 
-    f2.write(plat + "\n" + timeW1 + "\n" + timeW2 + "\n" + "Directries of C:\Windows\system32 \n" + "\n")
+    #f2.write(plat + "\n" + timeW1 + "\n" + timeW2 + "\n" + "Directries of C:\Windows\system32 \n" + "\n")
 
     for root, dirs, files in os.walk("C:\Windows\system32"):
         for file in files:
@@ -48,13 +47,15 @@ elif (a == "Windows"):
 
 elif (a == "Darwin"):
 
-    x = datetime.datetime.now(pytz.utc)
+    x = datetime.datetime.now()
     mactime = x.strftime("%d" "-" "%b" "-" "%y" "\n" "%I" ":" "%M" " " "%p")
-    print(mactime + "\n" + "\n Directries of C:\Windows\system32 \n")
+    #print(mactime + "\n" + "\n Directries of C:\Windows\system32 \n")
 
-    y = datetime.datetime.now(pytz.utc)
-    timeL  = y.strftime("%a %b %m %H:%M:%S %z %Y")
-    #print (timeL)
+    y = datetime.datetime.now()
+    timeL  = x.strftime("%a %b %m %H:%M:%S")
+    timezone = time.timezone
+    year = x.strftime("%Y \n")
+    print (timeL , timezone , year , "\n")
     #print(x.strftime('%a %b %m %H:%M:%S')), time.timezone , x.strftime( '%Y')
 
     f3 = open(r'/Users/sajjkavinda/entries_mac.log', 'w') 
