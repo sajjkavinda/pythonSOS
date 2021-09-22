@@ -25,7 +25,6 @@ if (a == "Linux"):
                 f1.write(os.getcwd() + file + "\n")
 
 elif (a == "Windows"):
-
     x = datetime.datetime.now()
     timeW1 = x.strftime("%d" "-" "%b" "-" "%y")
     timeW2 = x.strftime("%I" ":" "%M" " " "%p")
@@ -57,6 +56,7 @@ elif (a == "Darwin"):
     year = x.strftime("%Y")
     print (timeL , timezone , year , "\n")
     #print(x.strftime('%a %b %m %H:%M:%S')), time.timezone , x.strftime( '%Y')
+
 
     f3 = open(r'/Users/sajjkavinda/entries_mac.log', 'w') 
 
