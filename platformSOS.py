@@ -30,7 +30,7 @@ elif (a == "Windows"):
     timeW2 = x.strftime("%I" ":" "%M" " " "%p")
     print(timeW1  + "\n" + timeW2 +"\n" + "\n Directries of C:\Windows\system32 \n")
 
-    f2 = open(r'C:\Desktop\entries_Win10.log', 'w')
+    f2 = open('C:\Desktop\entries_Win10.log', 'w')
 
     os.chdir(r'C:\Windows\system32')
 
