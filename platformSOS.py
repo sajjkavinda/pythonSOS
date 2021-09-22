@@ -1,7 +1,8 @@
 import platform, os
 import datetime, time
 
-plat = "Platform: " + platform.platform()
+plat = "Platform: " + platform.platform() + "\n"
+print (plat)
 
 a = platform.system()
 if (a == "Linux"):
@@ -34,8 +35,7 @@ elif (a == "Windows"):
 
     os.chdir(r'C:\Windows\system32')
 
-
-    #f2.write(plat + "\n" + timeW1 + "\n" + timeW2 + "\n" + "Directries of C:\Windows\system32 \n" + "\n")
+    f2.write(plat + "\n" + timeW1 + "\n" + timeW2 + "\n" + "Directries of C:\Windows\system32 \n" + "\n")
 
     for root, dirs, files in os.walk("C:\Windows\system32"):
         for file in files:
@@ -54,7 +54,7 @@ elif (a == "Darwin"):
     y = datetime.datetime.now()
     timeL  = x.strftime("%a %b %m %H:%M:%S")
     timezone = time.timezone
-    year = x.strftime("%Y \n")
+    year = x.strftime("%Y")
     print (timeL , timezone , year , "\n")
     #print(x.strftime('%a %b %m %H:%M:%S')), time.timezone , x.strftime( '%Y')
 
