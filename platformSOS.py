@@ -10,7 +10,7 @@ if (a == "Linux"):
     timeL  = x.strftime("%a %b %m %H:%M:%S")
     timezone = time.timezone
     year = x.strftime("%Y \n")
-    print (timeL + " "+ timezone + " " + year + "\n")
+    print (timeL + " ", timezone , " " , year , "\n")
 
     f1 = open(r'root/Desktop/entries_Lin.log', 'w')
 
