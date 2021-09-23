@@ -9,7 +9,7 @@ if (a == "Linux"):
     x = datetime.datetime.now()
     timeL  = x.strftime("%a %b %m %H:%M:%S")
     timezone = time.timezone
-    year = x.strftime("%Y \n")
+    year = x.strftime("%Y")
     print (timeL + " ", timezone , " " , year , "\n")
 
     f1 = open(r'root/Desktop/entries_Lin.log', 'w')
@@ -30,19 +30,27 @@ elif (a == "Windows"):
     timeW2 = x.strftime("%I" ":" "%M" " " "%p")
     print(timeW1  + "\n" + timeW2 +"\n" + "\n Directries of C:\Windows\system32 \n")
 
-    f2 = open(r'C:\Desktop\entries_Win10.log', 'w')
+    f2 = open(r'C:\Users\user\Desktop\entries_Win10.log', 'w')
 
     os.chdir(r'C:\Windows\system32')
 
     f2.write(plat + "\n" + timeW1 + "\n" + timeW2 + "\n" + "Directries of C:\Windows\system32 \n" + "\n")
 
-    for root, dirs, files in os.walk("C:\Windows\system32"):
+    details = os.popen('cmd /k "dir C:\\Windows\system32\*.exe"')
+
+    for records in details:
+        print(details)
+        f2.write(details)
+
+    #details = os.system('cmd /k "dir C:\\Windows\system32\*.exe"')
+
+    '''for root, dirs, files in os.walk("C:\Windows\system32"):
         for file in files:
             if file.endswith(".exe"):
                 a = str(os.path.getsize(file))
                 b = str(time.ctime(os.path.getctime(file)))
                 print(b + a.rjust(10) + " " + file)
-                f2.write(b + a.rjust(10) + " " + file + "\n")
+                f2.write(b + a.rjust(10) + " " + file + "\n")'''
 
 elif (a == "Darwin"):
 
