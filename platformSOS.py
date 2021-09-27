@@ -45,43 +45,5 @@ elif (a == "Windows"): #check the platform type
 
     #print and redirect the shell output
     for records in details:
-        print(details)
-        f2.write(details)
-
-    #details = os.system('cmd /k "dir C:\\Windows\system32\*.exe"')
-
-    '''for root, dirs, files in os.walk("C:\Windows\system32"):
-        for file in files:
-            if file.endswith(".exe"):
-                a = str(os.path.getsize(file))
-                b = str(time.ctime(os.path.getctime(file)))
-                print(b + a.rjust(10) + " " + file)
-                f2.write(b + a.rjust(10) + " " + file + "\n")'''
-
-elif (a == "Darwin"):
-
-    x = datetime.datetime.now()
-    mactime = x.strftime("%d" "-" "%b" "-" "%y" "\n" "%I" ":" "%M" " " "%p")
-    #print(mactime + "\n" + "\n Directries of C:\Windows\system32 \n")
-
-    y = datetime.datetime.now()
-    timeL  = x.strftime("%a %b %m %H:%M:%S")
-    timezone = time.timezone
-    year = x.strftime("%Y")
-    print (timeL , timezone , year , "\n")
-    #print(x.strftime('%a %b %m %H:%M:%S')), time.timezone , x.strftime( '%Y')
-
-
-    f3 = open(r'/Users/sajjkavinda/entries_mac.log', 'w') 
-
-    os.chdir(r'/Users/sajjkavinda/Downloads/')
-
-    f3.write(plat + "\n" + mactime + "\n") 
-
-    for root, dirs, files in os.walk('/Users/sajjkavinda/Downloads/'):
-        for file in files:
-            if file.endswith(".pdf"):
-                a = str(os.path.getsize(file))
-                b = str(time.ctime(os.path.getctime(file)))
-                print( b + a.rjust(10) + " " + file)
-                f3.write( b + a.rjust(10) + " " + file + "\n")
+        print(records)
+        f2.write(records)
