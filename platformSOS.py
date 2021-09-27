@@ -4,7 +4,7 @@ import platform, os
 import datetime, time
 
 #platform information
-plat = "Platform: " + platform.platform() + "\n"
+plat = "Platform: " + platform.platform()
 
 a = platform.system() #platform type extract
 
@@ -16,17 +16,14 @@ if (a == "Linux"): #check the platform type
     timezone = time.strftime(str(time.timezone))
     year = x.strftime("%Y")
 
-    f1 = open(os.path.expanduser("~/Desktop/Entries_Lin.log"), "w") #create a log file to write details
+    path = os.path.expanduser("~/Desktop/Entries_Lin.log") #path to the file
+
+    f1 = open(path, "w") #create a log file to write details
 
     f1.write(plat + "\n" + timeL + timezone + year + "\n \n") #write the platform date and time details in the log file
     
-    os.chdir(r"/usr/lib/")
-    
-    #access folders and subfolders in /usr/lib path -> print in the shell and write into the log file
-    details = os.popen('sudo find /lib/ -name "*.bin" -type f')
-    
-    for records in details:
-        f1.write(records)
+    #access folders and subfolders in /usr/lib path -> write into the log file
+    os.system('sudo find /usr/lib/ -name "*.bin" -type f >>'+path) 
 
 elif (a == "Windows"): #check the platform type
 
@@ -35,12 +32,13 @@ elif (a == "Windows"): #check the platform type
     timeW1 = x.strftime("%d" "-" "%b" "-" "%y")
     timeW2 = x.strftime("%I" ":" "%M" " " "%p")
 
-    f2 = open(os.path.expanduser("~\Desktop\Entries_Win10.log"), "w") #create a log file to write details
+    path = os.path.expanduser("~/Desktop/Entries_Win10.log") #path to the file
 
-    f2.write(plat + "\n" + timeW1 + "\n" + timeW2 + "\n") #write the platform, date and time details in the log file
+    f2 = open(path, "w") #create a log file to write details
 
-    details = os.popen('cmd /k "dir C:\\Windows\system32\*.exe"') #run the shell command for sort out .exe files
+    f2.write(plat + "\n" + timeW1 + "\n" + timeW2 + "\n \n") #write the platform, date and time details in the log file
+    f2.close()
 
-    #print and redirect the shell output
-    for records in details:
-        f2.write(records)
+    #run the shell command for sort out .exe files and redirect them to the log file
+    os.system('dir C:\Windows\system32\*.exe >>' + path)
+
