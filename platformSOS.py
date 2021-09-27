@@ -34,7 +34,7 @@ elif (a == "Windows"): #check the platform type
     timeW1 = x.strftime("%d" "-" "%b" "-" "%y")
     timeW2 = x.strftime("%I" ":" "%M" " " "%p")
 
-    path = os.path.expanduser("~/Desktop/Entries_Win10.log") #path to the file
+    path = os.path.expanduser("~\Desktop\Entries_Win10.log") #path to the file
 
     f2 = open(path, "w") #create a log file to write details
 
