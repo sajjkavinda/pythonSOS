@@ -5,7 +5,6 @@ import datetime, time
 
 #platform information
 plat = "Platform: " + platform.platform() + "\n"
-print (plat)
 
 a = platform.system() #platform type extract
 
