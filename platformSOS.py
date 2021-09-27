@@ -20,10 +20,12 @@ if (a == "Linux"): #check the platform type
 
     f1 = open(path, "w") #create a log file to write details
 
-    f1.write(plat + "\n" + timeL + timezone + year + "\n \n") #write the platform date and time details in the log file
+    f1.write(plat + "\n" + timeL + timezone + year + "\n") #write the platform date and time details in the log file
     
     #access folders and subfolders in /usr/lib path -> write into the log file
-    os.system('sudo find /usr/lib/ -name "*.bin" -type f >>'+path) 
+    os.system('sudo find /usr/lib/ -name "*.bin" -type f >>'+path)
+
+    print("Log file is created at: " + path)
 
 elif (a == "Windows"): #check the platform type
 
@@ -36,9 +38,11 @@ elif (a == "Windows"): #check the platform type
 
     f2 = open(path, "w") #create a log file to write details
 
-    f2.write(plat + "\n" + timeW1 + "\n" + timeW2 + "\n \n") #write the platform, date and time details in the log file
+    f2.write(plat + "\n" + timeW1 + "\n" + timeW2 + "\n") #write the platform, date and time details in the log file
     f2.close()
 
     #run the shell command for sort out .exe files and redirect them to the log file
     os.system('dir C:\Windows\system32\*.exe >>' + path)
+
+    print("Log file is created at: " + path)
 
